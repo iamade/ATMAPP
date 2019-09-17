@@ -11,7 +11,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-devkit/build-angular": "^0.803.4",
     "@angular/animations": "^8.2.6",
     "@angular/common": "^8.2.6",
     "@angular/compiler": "^8.2.6",
@@ -24,12 +23,14 @@
     "alertifyjs": "^1.11.4",
     "bootstrap": "^4.3.1",
     "bootswatch": "^4.3.1",
+    "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^5.1.2",
     "ngx-gallery": "^5.10.0",
     "rxjs": "^6.5.3",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^0.803.4",
     "@angular/cli": "~8.3.4",
     "@angular/compiler-cli": "^8.2.6",
     "@angular/language-service": "^8.2.6",
