@@ -18,20 +18,12 @@ model: any = {};
     this.authService.login(this.model).subscribe(next => {
       console.log('Login successful');
     }, error => {
-      
+
       console.log('Failed to login');
     });
    }
 
-   loggedIn() {
-     const token = localStorage.getItem('token');
-     return !!token;
-   }
-
-   logout() {
-     localStorage.removeItem('token');
-     console.log('logged out');
-   }
+   
 
 
 }
