@@ -1,45 +1,94 @@
 <div>
   <div class="row">
+    <div class="col-md-4"></div>
+    <!--Grid column -->
 
-      <div class="col-md-4"></div>
-      <!--Grid column #frm="ngForm"-->
-
-    <form class="form-signIn"  (ngSubmit)="signIn(frm)">
-      <div class="col-md-4 mb-4 wow fadeIn" style="text-align:center; margin-left: 550px; margin-top: 110px;">
+    <form class="form-signIn" #loginForm="ngForm" (ngSubmit)="login()">
+      <div
+        class="col-md-4 mb-4 wow fadeIn"
+        style="text-align:center; margin-left: 550px; margin-top: 110px;"
+      >
         <div *ngIf="invalidLoginDetails" class="alert alert-danger">
           Invalid Username and/or Password Provided
         </div>
-            <div class="card">
-                <div class="card-header text-center loginhd" style="background-color: #cb4335 ; color:white; padding:15px;">Login</div>
-                <!--Card content-->
-                <div class="card-body" style="padding: 10px 20px 15px 20px;">
-                    <img id="sterlingLogo" class="rounded-circle" src="assets/images/sterlinlogo.png" />
-                    <br>
+        <div class="card">
+          <div
+            class="card-header text-center loginhd"
+            style="background-color: #cb4335 ; color:white; padding:15px;"
+          >
+            Login
+          </div>
+          <!--Card content-->
+          <div class="card-body" style="padding: 10px 20px 15px 20px;">
+            <img
+              id="sterlingLogo"
+              class="rounded-circle"
+              src="assets/images/sterlinlogo.png"
+            />
+            <br />
 
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="background-color:transparent" id="basic-addon1"><i class="fa fa-user"></i></span>
-                                </div>
-                                <input login type="text" name="username"  ngModel id="inputUsrname" class="form-control" placeholder="Input Username" aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            <br />
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" style="background-color:transparent" id="basic-addon1"><i  class="fa fa-unlock-alt"></i></span>
-                                </div>
-                                <input login type="password" name="password" ngModel id="inputpassword"  class="form-control" placeholder="Input Password" aria-label="Username" aria-describedby="basic-addon1">
-                            </div>
-                            <br />
-                            <div class="form-group">
-                                <button class="btn btn-info btn-block" type="submit" style="padding: 10px; border-radius:25px;">Login</button>
-                            </div>
-
-                </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text"
+                  style="background-color:transparent"
+                  id="basic-addon1"
+                  ><i class="fa fa-user"></i
+                ></span>
+              </div>
+              <input
+                login
+                type="text"
+                name="username"
+                required
+                [(ngModel)]="model.username"
+                class="form-control"
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              />
             </div>
+            <br />
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text"
+                  style="background-color:transparent"
+                  id="basic-addon1"
+                  ><i class="fa fa-unlock-alt"></i
+                ></span>
+              </div>
+              <input
+                login
+                type="password"
+                name="password"
+                required
+                [(ngModel)]="model.password"
+                class="form-control"
+                placeholder="Password"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+                
+              />
+            </div>
+            <br />
+            <div class="form-group">
+              <button
+                [disabled]="!loginForm.valid"
+                class="btn btn-info btn-block"
+                type="submit"
+                style="padding: 10px; border-radius:25px;"
+                
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
 
-          <!--Card-->
+        <!--Card-->
       </div>
     </form>
-      <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
   </div>
 </div>
