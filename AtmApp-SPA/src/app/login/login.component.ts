@@ -1,6 +1,7 @@
 import { AlertifyService } from './../_services/alertify.service';
 import { AuthService } from './../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 model: any = {};
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,8 @@ model: any = {};
       this.alertify.success('Login is successful');
     }, error => {
       this.alertify.error(error);
+    }, () => {
+      this.router.navigate(['/home']);
     });
    }
 
