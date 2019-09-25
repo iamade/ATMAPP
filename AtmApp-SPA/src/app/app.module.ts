@@ -14,6 +14,7 @@ import { CardsComponent } from './cards/cards.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { appRoutes } from './routes';
+import { AtmFleetComponent } from './atm-fleet/atm-fleet.component';
 
 
 
@@ -24,7 +25,8 @@ import { appRoutes } from './routes';
       NavComponent,
       CardsComponent,
       HomeComponent,
-      RegisterComponent
+      RegisterComponent,
+      AtmFleetComponent
    ],
    imports: [
       BrowserModule,
@@ -32,7 +34,6 @@ import { appRoutes } from './routes';
       FormsModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes)
-
    ],
    providers: [
       AuthService,

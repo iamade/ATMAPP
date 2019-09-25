@@ -7,20 +7,17 @@ import { CardsComponent } from './cards/cards.component';
 import { RegisterComponent } from './register/register.component';
 
 export const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent},
-    {
-        path: '',
-        runGuardsAndResolvers: 'always',
-        canActivate: [AuthGuard],
-        children: [
-            { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
-            { path: 'nav', component: NavComponent},
-            { path: 'cards', component: CardsComponent},
-            { path: 'register', component: RegisterComponent},
-
-        ]
-    },
-
-    { path: '**', redirectTo: 'login', pathMatch: 'full'},
-
-];
+            { path: 'login', component: LoginComponent},
+            {
+                path: '',
+                runGuardsAndResolvers: 'always',
+                canActivate: [AuthGuard],
+                children: [
+                    { path: 'home', component: HomeComponent},
+                    { path: 'nav', component: NavComponent},
+                    { path: 'cards', component: CardsComponent},
+                    { path: 'register', component: RegisterComponent},
+                ]
+            },
+            { path: '**', redirectTo: 'login', pathMatch: 'full'},
+        ];
