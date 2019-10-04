@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-md-4"></div>
     <!--Grid column -->
-
+    <div
+    class="col-md-4 mb-4 wow fadeIn"
+    style="text-align:center; margin-left: 550px; margin-top: 110px;"
+  >
     <form class="form-signIn" #loginForm="ngForm" (ngSubmit)="login()">
-      <div
-        class="col-md-4 mb-4 wow fadeIn"
-        style="text-align:center; margin-left: 550px; margin-top: 110px;"
-      >
+     
         <div *ngIf="invalidLoginDetails" class="alert alert-danger">
           Invalid Username and/or Password Provided
         </div>
@@ -82,13 +82,23 @@
               >
                 Login
               </button>
+              
             </div>
           </div>
         </div>
 
         <!--Card-->
-      </div>
+      
     </form>
+    <button
+    class="btn btn-info btn-block"
+    (click)= "register()"
+    style="padding: 10px; border-radius:25px;"  
+  >
+    Register
+  </button>
+  </div>
+   
     <div class="col-md-4"></div>
   </div>
 </div>

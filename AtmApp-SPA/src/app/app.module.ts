@@ -26,7 +26,8 @@ import { AtmFleetComponent } from './atm-fleet/atm-fleet.component';
       CardsComponent,
       HomeComponent,
       RegisterComponent,
-      AtmFleetComponent
+      AtmFleetComponent,
+      RegisterComponent
    ],
    imports: [
       BrowserModule,

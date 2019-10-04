@@ -26,5 +26,10 @@ model: any = {};
     });
    }
 
+   register() {
+            this.router.navigate(['/register']);
+     }
+   }
 
-}
+
+

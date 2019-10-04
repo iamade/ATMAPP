@@ -1,3 +1,4 @@
+import { AtmFleetComponent } from './atm-fleet/atm-fleet.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
@@ -13,10 +14,13 @@ export const appRoutes: Routes = [
                 runGuardsAndResolvers: 'always',
                 canActivate: [AuthGuard],
                 children: [
+                    
                     { path: 'home', component: HomeComponent},
-                    { path: 'nav', component: NavComponent},
-                    { path: 'cards', component: CardsComponent},
                     { path: 'register', component: RegisterComponent},
+                    { path: 'nav', component: NavComponent},
+                    { path: 'atm-fleet', component: AtmFleetComponent},
+                    { path: 'cards', component: CardsComponent},
+                    
                 ]
             },
             { path: '**', redirectTo: 'login', pathMatch: 'full'},
