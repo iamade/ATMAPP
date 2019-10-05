@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 model: any = {};
+registerMode = false;
 
   constructor(private authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
@@ -24,6 +25,10 @@ model: any = {};
     }, () => {
       this.router.navigate(['/home']);
     });
+   }
+
+   registerToggle(){
+     this.registerMode = !this.registerMode;
    }
 
    register() {
