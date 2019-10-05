@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { appRoutes } from './routes';
 import { AtmFleetComponent } from './atm-fleet/atm-fleet.component';
+import { FaultLogComponent } from './fault-log/fault-log.component';
 
 
 
@@ -27,7 +28,8 @@ import { AtmFleetComponent } from './atm-fleet/atm-fleet.component';
       HomeComponent,
       RegisterComponent,
       AtmFleetComponent,
-      RegisterComponent
+      RegisterComponent,
+      FaultLogComponent
    ],
    imports: [
       BrowserModule,
