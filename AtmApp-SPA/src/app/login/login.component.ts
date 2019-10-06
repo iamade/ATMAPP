@@ -28,11 +28,15 @@ registerMode = false;
    }
 
    registerToggle(){
-     this.registerMode = !this.registerMode;
+     this.registerMode = true;
    }
 
    register() {
             this.router.navigate(['/register']);
+     }
+
+     cancelRegisterMode(registerMode: boolean) {
+       this.registerMode = registerMode;
      }
    }
 

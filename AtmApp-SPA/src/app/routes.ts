@@ -6,6 +6,7 @@ import {Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { CardsComponent } from './cards/cards.component';
 import { RegisterComponent } from './register/register.component';
+import { FaultLogComponent } from './fault-log/fault-log.component';
 
 export const appRoutes: Routes = [
             { path: 'login', component: LoginComponent},
@@ -20,6 +21,7 @@ export const appRoutes: Routes = [
                     { path: 'nav', component: NavComponent},
                     { path: 'atm-fleet', component: AtmFleetComponent},
                     { path: 'cards', component: CardsComponent},
+                    { path: 'fault-log', component: FaultLogComponent},
                     
                 ]
             },
