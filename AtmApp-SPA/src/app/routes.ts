@@ -15,15 +15,14 @@ export const appRoutes: Routes = [
                 runGuardsAndResolvers: 'always',
                 canActivate: [AuthGuard],
                 children: [
-                    
                     { path: 'home', component: HomeComponent},
                     { path: 'register', component: RegisterComponent},
                     { path: 'nav', component: NavComponent},
                     { path: 'atm-fleet', component: AtmFleetComponent},
                     { path: 'cards', component: CardsComponent},
                     { path: 'fault-log', component: FaultLogComponent},
-                    
+                
                 ]
             },
-            { path: '**', redirectTo: 'login', pathMatch: 'full'},
+            { path: '**', redirectTo: '', pathMatch: 'full'},
         ];
