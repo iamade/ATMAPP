@@ -20,7 +20,7 @@ namespace AtmApp.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAtms()
         {
-            var atms = await _repo.Atms;
+            var atms = await _repo.GetAtms();
             return Ok(atms);
         }
 

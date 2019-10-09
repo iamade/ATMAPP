@@ -9,7 +9,7 @@ namespace AtmApp.API.Data
          void Add<T>(T entity) where T: class;
          void Delete<T>(T entity) where T: class;
          Task<bool> SaveAll();
-         Task<IEnumerable<AtmFleet>>GetAtms();
+         Task<IEnumerable<AtmFleet>> GetAtms();
          Task<AtmFleet> GetAtm(int id);
         
          
