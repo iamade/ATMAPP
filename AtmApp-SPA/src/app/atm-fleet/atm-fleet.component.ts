@@ -1,5 +1,7 @@
+import { AtmfleetService } from './../_services/atmfleet.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-declare const $;
+import { Subject } from 'rxjs';
+
 @Component({
   selector: 'app-atm-fleet',
   templateUrl: './atm-fleet.component.html',
@@ -7,19 +9,32 @@ declare const $;
 })
 export class AtmFleetComponent implements OnInit {
   public atmfleet: any[];
-  
-  constructor() { }
+  dtOptions: any = {};
+  dtTrigger: Subject<any> = new Subject();
+
+  constructor(private atmfleetservices: AtmfleetService) { }
 
   ngOnInit() {
-    // tslint:disable-next-line: only-arrow-functions
-    $(function() {
-      $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-    });
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      dom: 'Bfrtip',
+      buttons: [
+        'print',
+        'excel',
+        'pdf',
+        'csv',
+      ]
+    };
+
+    this.atmfleetservices.getAtms().subscribe(
+      result => {
+        this.atmfleet = result;
+        this.dtTrigger.next();
+
+      },
+      error => console.log(error)
+    );
   }
 
 }
