@@ -23,7 +23,7 @@
      </thead>
      <tbody>
      <tr *ngFor="let atmfleet of atmfleet">
-         <!--<td> {{ atmfleet?.id }}</td>
+         <td> {{ atmfleet?.id }}</td>
          <td> {{ atmfleet?.terminalId }}</td>
          <td> {{ atmfleet?.terminalName }}</td>
          <td> {{ atmfleet?.ip }}</td>
@@ -34,8 +34,8 @@
          <td> {{ atmfleet?.location }}</td>
          <td> {{ atmfleet?.branchCode }}</td>
          <td> {{ atmfleet?.regionalPersonnel }}</td>
-         -->
-         <td *ngIf="atmfleet.id === EditRowId"><input type="text" [(ngModel)]="atmfleet.id"></td>
+         
+         <!--<td *ngIf="atmfleet.id === EditRowId"><input type="text" [(ngModel)]="atmfleet.id"></td>
          <td *ngIf="atmfleet.id !== EditRowId" (click)="Edit(atmfleet.id)"> {{ atmfleet?.id }}</td>
          <td *ngIf="atmfleet.terminalId === EditRowId"><input type="text" [(ngModel)]="atmfleet.terminalId"></td>
          <td *ngIf="atmfleet.terminalId !== EditRowId" (click)="Edit(atmfleet.terminalId)"> {{ atmfleet?.terminalId }}</td>
@@ -55,7 +55,7 @@
          <td *ngIf="atmfleet.branchCode !== EditRowId" (click)="Edit(atmfleet.branchCode)"> {{ atmfleet?.branchCode }}</td>
          <td *ngIf="atmfleet.regionalPersonnel === EditRowId"><input type="text" [(ngModel)]="atmfleet.regionalPersonnel"></td>
          <td *ngIf="atmfleet.regionalPersonnel !== EditRowId" (click)="Edit(atmfleet.regionalPersonnel)"> {{ atmfleet?.regionalPersonnel }}</td>
-        
+        -->
 
      </tr>
     </tbody>
