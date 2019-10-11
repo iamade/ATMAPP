@@ -11,13 +11,20 @@ export class AtmFleetComponent implements OnInit {
   public atmfleet: any[];
   dtOptions: any = {};
   dtTrigger: Subject<any> = new Subject();
+  TableData: any = [];
+  ShowEditTable: boolean = false;
+  EditRowId: any = '';
+
+  Edit(val) {
+    this.EditRowId = val;
+  }
 
   constructor(private atmfleetservices: AtmfleetService) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 10,
+      pageLength: 30,
       dom: 'Bfrtip',
       buttons: [
         'print',
@@ -30,6 +37,7 @@ export class AtmFleetComponent implements OnInit {
     this.atmfleetservices.getAtms().subscribe(
       result => {
         this.atmfleet = result;
+        console.log(result);
         this.dtTrigger.next();
 
       },

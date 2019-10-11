@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AtmApp.API.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AtmFleetController : ControllerBase
