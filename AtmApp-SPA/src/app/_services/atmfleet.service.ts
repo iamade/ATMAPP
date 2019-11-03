@@ -13,11 +13,11 @@ export class AtmfleetService {
 constructor(private http: HttpClient) { }
 
 getAtms(): Observable<AtmFleet[]> {
-  return this.http.get<AtmFleet[]>(this.baseUrl + 'Getatms');
+  return this.http.get<AtmFleet[]>(this.baseUrl + 'atmfleet');
 }
 
 getAtm(id): Observable<AtmFleet> {
-  return this.http.get<AtmFleet>(this.baseUrl + 'Getatm/' + id);
+  return this.http.get<AtmFleet>(this.baseUrl + 'atmfleet/' + id);
 }
 
 }

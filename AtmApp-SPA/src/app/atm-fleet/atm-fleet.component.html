@@ -1,43 +1,43 @@
 <div class="container-fluid">
   <div class="row">
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-<canvas
-class="my-4 w-100 chartjs-render-monitor"
-id="myChart"
-width="809"
-height="341"
-style="display: block; width: 809px; height: 341px;"
-></canvas>
+
 
 <h2>Section title</h2>
-<table id="atmTable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="display nowrap" style="width:100%">
+<table id="atmTable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table-bordered table-responsive" style="width:100%">
   <thead>
       <tr class="header">
+           
            <th>id</th> 
            <th>terminalId</th> 
            <th>terminalName</th> 
+           <th>IP</th>
            <th>gateway</th> 
            <th>brand</th> 
            <th>vendor</th> 
            <th>region</th> 
            <th>location</th> 
-           <th>branchCode</th> 
            <th>regionalPersonnel</th> 
+           <th>Edit AtmFleet</th>
           
           </tr>
      </thead>
      <tbody>
      <tr *ngFor="let atmfleet of atmfleet">
+         
          <td> {{ atmfleet?.id }}</td>
          <td> {{ atmfleet?.terminalId }}</td>
          <td> {{ atmfleet?.terminalName }}</td>
+         <td> {{ atmfleet?.ip }}</td>
          <td> {{ atmfleet?.gateway }}</td>
          <td> {{ atmfleet?.brand }}</td>
          <td> {{ atmfleet?.vendor }}</td>
          <td> {{ atmfleet?.region }}</td>
          <td> {{ atmfleet?.location }}</td>
-         <td> {{ atmfleet?.branchCode }}</td>
          <td> {{ atmfleet?.regionalPersonnel }}</td>
+         <td><button class="btn btn-info btn-xs" [routerLink]="['/atmfleet/',atmfleet.id]"
+           >Edit</button> / 
+          <button class="btn btn-info btn-xs">Delete</button></td>
          
      </tr>
     </tbody>
@@ -47,6 +47,14 @@ style="display: block; width: 809px; height: 341px;"
       </div>
   </div>
 </table>
+
+<canvas
+class="my-4 w-100 chartjs-render-monitor"
+id="myChart"
+width="809"
+height="341"
+style="display: block; width: 809px; height: 341px;"
+></canvas>
 </main>
 </div>
 </div>

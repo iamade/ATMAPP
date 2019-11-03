@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -17,7 +18,12 @@ import { RegisterComponent } from './register/register.component';
 import { appRoutes } from './routes';
 import { AtmFleetComponent } from './atm-fleet/atm-fleet.component';
 import { FaultLogComponent } from './fault-log/fault-log.component';
+import { AtmfleetEditComponent } from './atmfleet-edit/atmfleet-edit.component';
 
+
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
 
 
 @NgModule({
@@ -30,7 +36,8 @@ import { FaultLogComponent } from './fault-log/fault-log.component';
       RegisterComponent,
       AtmFleetComponent,
       RegisterComponent,
-      FaultLogComponent
+      FaultLogComponent,
+      AtmfleetEditComponent
    ],
    imports: [
       BrowserModule,
@@ -38,7 +45,14 @@ import { FaultLogComponent } from './fault-log/fault-log.component';
       FormsModule,
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
-      DataTablesModule
+      DataTablesModule,
+      JwtModule.forRoot({
+         config: {
+            tokenGetter: tokenGetter,
+            whitelistedDomains: ['localhost:5000'],
+            blacklistedRoutes: ['localhost:5000/api/auth']
+         }
+      })
    ],
    providers: [
       AuthService,
