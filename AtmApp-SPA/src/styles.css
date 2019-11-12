@@ -4,3 +4,139 @@
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+.glypicon {
+    font-size: .45em !important;
+    float: left;
+    padding: 4.5px;
+}
+
+.btn-secondary {
+    color: #6c757d;
+    background-color: white;
+    border-color: #6c757d;
+  }
+  .btn-secondary:hover {
+    color: #fff;
+    background-color: #acafb1;
+    border-color: #545b62;
+  }
+
+  	/* Coded with love by Mutiullah Samim */
+ 
+ 
+      .user_card {
+        height: 400px;
+        width: 350px;
+        margin-top: 117px;
+        margin-bottom: auto;
+        background: #fff;;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+    
+      }
+      .brand_logo_container {
+        position: absolute;
+        height: 170px;
+        width: 170px;
+        top: -75px;
+        border-radius: 50%;
+        background: #60a3bc;
+        padding: 10px;
+        text-align: center;
+      }
+      .brand_logo {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        border: 2px solid white;
+      }
+      .form_container {
+        margin-top: 100px;
+      }
+      .login_btn {
+        width: 100%;
+        background: #c0392b !important;
+        color: white !important;
+      }
+    
+      .signup_btn {
+        width: 35%;
+        background: #c0392b !important;
+        color: white !important;
+      }
+      .login_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+      }
+      
+      .login_container {
+        padding: 0 2rem;
+      }
+      .input-group-text {
+        background: #c0392b !important;
+        color: white !important;
+        border: 0 !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+      }
+      .input_user,
+      .input_pass:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+      }
+      .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+        background-color: #86849e !important;
+      }
+
+.tab-panel {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .nav-tabs > li.open, .atmfleet-tabset > .nav-tabs > li:hover {
+    border-bottom: 4px solid #fbcdcf;
+  }
+  
+  .atmfleet-tabset > .nav-tabs > li.open > a, .atmfleet-tabset > .nav-tabs > li:hover > a {
+    border: 0;
+    background: none !important;
+    color: #333333;
+  }
+  
+  .atmfleet-tabset > .nav-tabs > li.open > a > i, .atmfleet-tabset > .nav-tabs > li:hover > a > i {
+    color: #a6a6a6;
+  }
+  
+  .atmfleet-tabset > .nav-tabs > li.open .dropdown-menu, .atmfleet-tabset > .nav-tabs > li:hover .dropdown-menu {
+    margin-top: 0px;
+  }
+  
+  .atmfleet-tabset > .nav-tabs > li.active {
+    border-bottom: 4px solid #3328ce;
+    position: relative;
+  }
+  
+  .atmfleet-tabset > .nav-tabs > li.active > a {
+    border: 0 !important;
+    color: #333333;
+  }
+  
+  .atmfleet-tabset > .nav-tabs > li.active > a > i {
+    color: #404040;
+  }
+  
+  .atmfleet-tabset > .tab-content {
+    margin-top: -3px;
+    background-color: #fff;
+    border: 0;
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+  }

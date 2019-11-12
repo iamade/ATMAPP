@@ -1,6 +1,7 @@
 import { AtmfleetService } from './../_services/atmfleet.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-atm-fleet',
@@ -19,12 +20,12 @@ export class AtmFleetComponent implements OnInit {
     this.EditRowId = val;
   }
 
-  constructor(private atmfleetservices: AtmfleetService) { }
+  constructor(private atmfleetservices: AtmfleetService, private authService: AuthService) { }
 
   ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 30,
+      pageLength: 40,
       dom: 'Bfrtip',
       buttons: [
         'print',
@@ -37,7 +38,7 @@ export class AtmFleetComponent implements OnInit {
     this.atmfleetservices.getAtms().subscribe(
       result => {
         this.atmfleet = result;
-        console.log(result);
+        //console.log(result);
         this.dtTrigger.next();
 
       },

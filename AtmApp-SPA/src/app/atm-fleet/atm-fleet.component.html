@@ -4,25 +4,27 @@
 
 
 <h2>List of ATMs</h2>
-<table id="atmTable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table-bordered table-responsive" >
+<table id="atmTable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table-bordered table-responsive" style="width:100%">
   <thead>
       <tr class="header">
-           <th>Id</th> 
-           <th>Terminal Id</th> 
-           <th>Terminal Name</th> 
-           <th>IP</th> 
-           <th>Gateway</th> 
-           <th>Brand</th> 
-           <th>Vendor</th> 
-           <th>Region</th> 
-           <th>Location</th> 
-           <th>Branch Code</th> 
-           <th>Regional Personnel</th> 
+           
+           <th>id</th> 
+           <th>terminalId</th> 
+           <th>terminalName</th> 
+           <th>IP</th>
+           <th>gateway</th> 
+           <th>brand</th> 
+           <th>vendor</th> 
+           <th>region</th> 
+           <th>location</th> 
+           <th>regionalPersonnel</th> 
+           <th>Edit AtmFleet</th>
           
           </tr>
      </thead>
      <tbody>
      <tr *ngFor="let atmfleet of atmfleet">
+         
          <td> {{ atmfleet?.id }}</td>
          <td> {{ atmfleet?.terminalId }}</td>
          <td> {{ atmfleet?.terminalName }}</td>
@@ -32,31 +34,25 @@
          <td> {{ atmfleet?.vendor }}</td>
          <td> {{ atmfleet?.region }}</td>
          <td> {{ atmfleet?.location }}</td>
-         <td> {{ atmfleet?.branchCode }}</td>
          <td> {{ atmfleet?.regionalPersonnel }}</td>
-         
-         <!--<td *ngIf="atmfleet.id === EditRowId"><input type="text" [(ngModel)]="atmfleet.id"></td>
-         <td *ngIf="atmfleet.id !== EditRowId" (click)="Edit(atmfleet.id)"> {{ atmfleet?.id }}</td>
-         <td *ngIf="atmfleet.terminalId === EditRowId"><input type="text" [(ngModel)]="atmfleet.terminalId"></td>
-         <td *ngIf="atmfleet.terminalId !== EditRowId" (click)="Edit(atmfleet.terminalId)"> {{ atmfleet?.terminalId }}</td>
-         <td *ngIf="atmfleet.terminalName === EditRowId"><input type="text" [(ngModel)]="atmfleet.terminalName"></td>
-         <td *ngIf="atmfleet.terminalName !== EditRowId" (click)="Edit(atmfleet.terminalName)"> {{ atmfleet?.terminalName }}</td>
-         <td *ngIf="atmfleet.ip === EditRowId"><input type="text" [(ngModel)]="atmfleet.ip"></td>
-         <td *ngIf="atmfleet.ip !== EditRowId" (click)="Edit(atmfleet.ip)"> {{ atmfleet?.ip }}</td>
-         <td *ngIf="atmfleet.gateway === EditRowId"><input type="text" [(ngModel)]="atmfleet.gateway"></td>
-         <td *ngIf="atmfleet.gateway !== EditRowId" (click)="Edit(atmfleet.gateway)"> {{ atmfleet?.gateway }}</td>
-         <td *ngIf="atmfleet.brand === EditRowId"><input type="text" [(ngModel)]="atmfleet.brand"></td>
-         <td *ngIf="atmfleet.brand !== EditRowId" (click)="Edit(atmfleet.brand)"> {{ atmfleet?.brand }}</td>
-         <td *ngIf="atmfleet.vendor === EditRowId"><input type="text" [(ngModel)]="atmfleet.vendor"></td>
-         <td *ngIf="atmfleet.vendor !== EditRowId" (click)="Edit(atmfleet.vendor)"> {{ atmfleet?.vendor }}</td>
-         <td *ngIf="atmfleet.location === EditRowId"><input type="text" [(ngModel)]="atmfleet.location"></td>
-         <td *ngIf="atmfleet.location !== EditRowId" (click)="Edit(atmfleet.location)"> {{ atmfleet?.location }}</td>
-         <td *ngIf="atmfleet.branchCode === EditRowId"><input type="text" [(ngModel)]="atmfleet.branchCode"></td>
-         <td *ngIf="atmfleet.branchCode !== EditRowId" (click)="Edit(atmfleet.branchCode)"> {{ atmfleet?.branchCode }}</td>
-         <td *ngIf="atmfleet.regionalPersonnel === EditRowId"><input type="text" [(ngModel)]="atmfleet.regionalPersonnel"></td>
-         <td *ngIf="atmfleet.regionalPersonnel !== EditRowId" (click)="Edit(atmfleet.regionalPersonnel)"> {{ atmfleet?.regionalPersonnel }}</td>
-        -->
+         <td>
+            <div class="btn-group" dropdown>
+                <button id="btnGroupDrop1" dropdownToggle type="button" class="btn btn-secondary dropdown-toggle"
+                     aria-haspopup="true" aria-expanded="false" 
+                    >
+                    <div class="glypicon">
+                        <i class="fa fa-cog fa-lg fa-spin fa-3x fa-fw"></i></div>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" *dropdownMenu >
+                    <a class="dropdown-item" [routerLink]="['/atmfleet/',atmfleet.id]">View</a>
+                    <a class="dropdown-item" [routerLink]="['/atmfleet/',atmfleet.id]">Edit</a>
+                    <a class="dropdown-item" href="#">Delete</a>
+                </div>
+            </div>
+            
+        
 
+          
      </tr>
     </tbody>
   <div class="footer">
@@ -65,6 +61,14 @@
       </div>
   </div>
 </table>
+
+<canvas
+class="my-4 w-100 chartjs-render-monitor"
+id="myChart"
+width="809"
+height="341"
+style="display: block; width: 809px; height: 341px;"
+></canvas>
 </main>
 </div>
 </div>

@@ -21,17 +21,17 @@ namespace AtmApp.API.Controllers
             _repo = repo;
 
         }
-        [Route("GetAtms")]
+       
         [HttpGet]
         public async Task<IActionResult> GetAtms()
         {
             var atms = await _repo.GetAtms();
-            var atmToReturn = _mapper.Map<IEnumerable<AtmFleetDto>>(atms);
-            return Ok(atmToReturn);
+            var atmsToReturn = _mapper.Map<IEnumerable<AtmFleetDto>>(atms);
+            return Ok(atms);
         }
 
-        [Route("GetAtm")]
-        [HttpGet]
+        
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetAtm(int id)
         {
             var atm = await _repo.GetAtm(id);
