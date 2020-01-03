@@ -11,6 +11,7 @@ namespace AtmApp.API.Data
          Task<bool> SaveAll();
          Task<IEnumerable<AtmFleet>> GetAtms();
          Task<AtmFleet> GetAtm(int id);
+         Task<bool> AtmExists(string terminalId);
         
          
     }

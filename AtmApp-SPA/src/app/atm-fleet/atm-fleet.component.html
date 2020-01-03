@@ -4,7 +4,17 @@
 
 
 <h2>List of ATMs</h2>
+<div>
+    <button
+      type="button"
+      class="btn btn-outline-success"
+      (click)="createApp()"
+    >
+      Create
+    </button>
+  </div>
 <table id="atmTable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table-bordered table-responsive" style="width:100%">
+    
   <thead>
       <tr class="header">
            

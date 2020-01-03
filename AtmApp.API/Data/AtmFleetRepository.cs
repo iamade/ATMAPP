@@ -18,6 +18,13 @@ namespace AtmApp.API.Data
             _context.Add(entity);
         }
 
+        public async Task<bool> AtmExists(string terminalId)
+        {
+            if (await _context.AtmFleet.AnyAsync(x => x.TerminalId == terminalId))
+                return true;
+            return false;
+        }
+
         public void Delete<T>(T entity) where T : class
         {
             _context.Remove(entity);

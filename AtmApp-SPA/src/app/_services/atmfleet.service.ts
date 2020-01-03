@@ -25,4 +25,8 @@ getAtm(id): Observable<AtmFleet> {
   return this.http.get<AtmFleet>(this.baseUrl + 'atmfleet/' + id);
 }
 
+createAtm():{
+  
+}
+
 }
