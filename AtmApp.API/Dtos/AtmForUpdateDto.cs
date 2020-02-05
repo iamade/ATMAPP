@@ -1,8 +1,7 @@
 namespace AtmApp.API.Dtos
 {
-    public class AtmFleetDto
+    public class AtmForUpdateDto
     {
-        public int Id { get; set; }
         public string TerminalId { get; set; }
         public string TerminalName { get; set; }
         public string Ip { get; set; }

@@ -12,5 +12,7 @@ namespace AtmApp.API.Data
         public DbSet<User> Users { get; set; }
 
         public DbSet<AtmFleet> AtmFleet { get; set; }
+
+        public DbSet <FaultLog> FaultLogs { get; set; }
     }
 }

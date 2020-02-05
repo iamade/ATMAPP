@@ -14,6 +14,8 @@ namespace AtmApp.API.Dtos
         public string Location { get; set; }
         public string BranchCode { get; set; }
         public string RegionalPersonnel { get; set; }
+        public string CustodianName {get; set;}
+        public string CustodianNumber { get; set; }
 
     }
 }

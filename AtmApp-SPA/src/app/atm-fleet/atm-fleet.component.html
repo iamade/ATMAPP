@@ -3,16 +3,23 @@
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
 
-<h2>List of ATMs</h2>
-<div>
-    <button
-      type="button"
-      class="btn btn-outline-success"
-      (click)="createApp()"
-    >
-      Create
-    </button>
+
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i>
+    List of ATMs
+    <div class="float-right">
+      <button
+        type="button"
+        class="btn btn-outline-success"
+        (click)="createModal(createATMMod)"
+      >
+        Create
+      </button>
+    </div>
   </div>
+</div>
+
 <table id="atmTable" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table-bordered table-responsive" style="width:100%">
     
   <thead>
@@ -54,14 +61,11 @@
                         <i class="fa fa-cog fa-lg fa-spin fa-3x fa-fw"></i></div>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" *dropdownMenu >
-                    <a class="dropdown-item" [routerLink]="['/atmfleet/',atmfleet.id]">View</a>
-                    <a class="dropdown-item" [routerLink]="['/atmfleet/',atmfleet.id]">Edit</a>
-                    <a class="dropdown-item" href="#">Delete</a>
+                  <!--  <a class="dropdown-item"  [routerLink]="['/atmfleet/',atmfleet.id]">View</a> -->
+                    <a class="dropdown-item" (click)="editAtmModal(editAtmMod, atmfleet?.id)">Edit</a>
+                    <a class="dropdown-item" (click)="deleteAtm(atmfleet?.id)">Delete</a>
                 </div>
             </div>
-            
-        
-
           
      </tr>
     </tbody>
@@ -82,3 +86,352 @@ style="display: block; width: 809px; height: 341px;"
 </main>
 </div>
 </div>
+
+<!----Create ATM Modal--->
+<ng-template #createATMMod let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">
+      Create an ATM
+    </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form
+  #createForm="ngForm"
+  (ngSubmit)="createAtm(createForm.value)"
+  class="create-form"
+  id="create-form"
+>
+<div class="form-group">
+  <div class="modal-body">
+   
+    <div class="row">
+       
+          <div class="col-sm-6">   
+      <input
+        updatetext
+        type="text"
+        name="TerminalId"
+        id="TerminalId"
+        ngModel
+        #TerminalId="ngModel"
+        placeholder="Terminal Id"
+      />
+      </div>
+    </div>
+
+    <div class="row">
+        
+          <div class="col-sm-6">   
+      <input
+      updatetext
+        type="text"
+        name=" TerminalName"
+        id="name"
+        ngModel
+        #TerminalName="ngModel"
+        placeholder="Terminal Name"
+      />
+    </div>
+  </div>
+
+    <div class="row">
+     
+      <div class="col-sm-6">
+      <input
+      updatetext
+        type="text"
+        name="ip"
+        id="ip"
+        ngModel
+        #ip="ngModel"
+        placeholder="Ip address"
+      />
+    </div>
+    </div>
+
+   <div class="row">
+     
+      <div class="col-sm-6">
+      <input
+      updatetext
+        type="text"
+        name="gateway"
+        id="gateway"
+        ngModel
+        #gateway="ngModel"
+        placeholder="Gateway"
+      />
+    </div>
+   </div>
+  
+
+    <div class="row">
+        
+        <div class="col-sm-6">
+          <input
+          updatetext
+          type="text"
+          name="brand"
+          id="brand"
+          ngModel
+          #brand="ngModel"
+          placeholder="Brand"
+          />
+        </div>
+      </div>
+      <div class="row">
+        
+          <div class="col-sm-6">
+            <input
+          updatetext
+          type="text"
+          name="vendor"
+          id="vendor"
+          ngModel
+          #vendor="ngModel"
+          placeholder="Vendor"
+            />
+          </div>
+        </div>
+        <div class="row">
+           
+            <div class="col-sm-6">
+              <input
+              updatetext
+              type="text"
+              name="region"
+              id="region"
+              ngModel
+              #region="ngModel"
+              placeholder="Region"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+           
+              <div class="col-sm-6">
+                <input
+                updatetext
+                type="text"
+                name="location"
+                id="location"
+                ngModel
+                #location="ngModel"
+                placeholder="Location"
+                />
+              </div>
+            </div>
+
+            <div class="row">
+           
+                <div class="col-sm-6">
+                  <input
+                  updatetext
+                  type="text"
+                  name="branchCode"
+                  id="branchCode"
+                  ngModel
+                  #branchCode="ngModel"
+                  placeholder="Branch Code"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+           
+                  <div class="col-sm-6">
+                    <input
+                    updatetext
+                    type="text"
+                    name="regionalPersonnel"
+                    id="regionalPersonnel"
+                    ngModel
+                    #regionalPersonnel="ngModel"
+                    placeholder="Regional Personnel"
+                    />
+                  </div>
+                </div>
+
+  </div>
+</div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-light"> Save Changes</button>
+    <button type="button" class="btn btn-light" (click)="cancel()">Cancel</button>
+  </div>
+</form>
+</ng-template>
+
+
+<!----Edit ATM Modal--->
+<ng-template #editAtmMod let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">
+        Edit ATM
+      </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form
+    #updateForm="ngForm"
+    class="updateForm"
+    id="updateForm"
+    (ngSubmit)="updateApp(atmToUpdate?.id, updateForm.value)"
+    
+  >
+  <div class="form-group">
+    <div class="modal-body">
+     
+      <div class="row">
+         
+            <div class="col-sm-6">   
+        <input
+          updatetext
+          type="text"
+          name="terminalId"
+          id="terminalId"
+          [(ngModel)]="atmToUpdate.terminalId"
+          value="{{ atmToUpdate?.terminalId }}"
+        />
+        </div>
+      </div>
+  
+      <div class="row">
+          
+            <div class="col-sm-6">   
+        <input
+        updatetext
+          type="text"
+          name="terminalName"
+          id="terminalName"
+          [(ngModel)]="atmToUpdate.terminalName"
+          value="{{ atmToUpdate?.terminalName }}"
+        />
+      </div>
+    </div>
+  
+      <div class="row">
+       
+        <div class="col-sm-6">
+        <input
+        updatetext
+          type="text"
+          name="ip"
+          id="ip"
+          [(ngModel)]="atmToUpdate.ip"
+          value="{{ atmToUpdate?.ip }}"
+        
+        />
+      </div>
+      </div>
+  
+     <div class="row">
+       
+        <div class="col-sm-6">
+        <input
+        updatetext
+          type="text"
+          name="gateway"
+          id="gateway"
+          [(ngModel)]="atmToUpdate.gateway"
+          value="{{ atmToUpdate?.gateway }}"
+        />
+      </div>
+     </div>
+    
+  
+      <div class="row">
+          
+          <div class="col-sm-6">
+            <input
+            updatetext
+            type="text"
+            name="brand"
+            id="brand"
+            [(ngModel)]="atmToUpdate.brand"
+            value="{{ atmToUpdate?.brand }}"
+            />
+          </div>
+        </div>
+        <div class="row">
+          
+            <div class="col-sm-6">
+              <input
+            updatetext
+            type="text"
+            name="vendor"
+            id="vendor"
+            [(ngModel)]="atmToUpdate.vendor"
+            value="{{ atmToUpdate?.vendor }}"
+              />
+            </div>
+          </div>
+          <div class="row">
+             
+              <div class="col-sm-6">
+                <input
+                updatetext
+                type="text"
+                name="region"
+                id="region"
+                [(ngModel)]="atmToUpdate.region"
+                value="{{ atmToUpdate?.region }}"
+                />
+              </div>
+            </div>
+  
+            <div class="row">
+             
+                <div class="col-sm-6">
+                  <input
+                  updatetext
+                  type="text"
+                  name="location"
+                  id="location"
+                  [(ngModel)]="atmToUpdate.location"
+                  value="{{ atmToUpdate?.location }}"
+                  />
+                </div>
+              </div>
+  
+              <div class="row">
+             
+                  <div class="col-sm-6">
+                    <input
+                    updatetext
+                    type="text"
+                    name="branchCode"
+                    id="branchCode"
+                    [(ngModel)]="atmToUpdate.branchCode"
+                  value="{{ atmToUpdate?.branchCode }}"
+                    />
+                  </div>
+                </div>
+  
+                <div class="row">
+             
+                    <div class="col-sm-6">
+                      <input
+                      updatetext
+                      type="text"
+                      name="regionalPersonnel"
+                      id="regionalPersonnel"
+                      [(ngModel)]="atmToUpdate.regionalPersonnel"
+                      value="{{ atmToUpdate?.regionalPersonnel }}"
+                      />
+                    </div>
+                  </div>
+  
+    </div>
+  </div>
+  
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-light"> Save Changes</button>
+      <button type="button" class="btn btn-light" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+  </ng-template>

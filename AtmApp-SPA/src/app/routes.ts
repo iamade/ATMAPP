@@ -8,6 +8,7 @@ import { CardsComponent } from './cards/cards.component';
 import { RegisterComponent } from './register/register.component';
 import { FaultLogComponent } from './fault-log/fault-log.component';
 import { AtmfleetEditComponent } from './atmfleet-edit/atmfleet-edit.component';
+import { AtmFleetResolver } from './_resolvers/atmfleet.resolver';
 
 export const appRoutes: Routes = [
             { path: 'login', component: LoginComponent},
@@ -20,7 +21,7 @@ export const appRoutes: Routes = [
                     { path: 'register', component: RegisterComponent},
                     { path: 'nav', component: NavComponent},
                     { path: 'atm-fleet', component: AtmFleetComponent},
-                    { path: 'atmfleet/:id', component: AtmfleetEditComponent},
+                    { path: 'atmfleet/:id', component: AtmfleetEditComponent, resolve: {atm: AtmFleetResolver}},
                     { path: 'cards', component: CardsComponent},
                     { path: 'fault-log', component: FaultLogComponent},
                 

@@ -8,6 +8,8 @@ import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { DataTablesModule } from 'angular-datatables';
 import { JwtModule } from '@auth0/angular-jwt';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AlertsModule } from 'angular-alert-module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +21,7 @@ import { appRoutes } from './routes';
 import { AtmFleetComponent } from './atm-fleet/atm-fleet.component';
 import { FaultLogComponent } from './fault-log/fault-log.component';
 import { AtmfleetEditComponent } from './atmfleet-edit/atmfleet-edit.component';
+import { AtmFleetResolver } from './_resolvers/atmfleet.resolver';
 
 
 export function tokenGetter() {
@@ -46,6 +49,8 @@ export function tokenGetter() {
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       DataTablesModule,
+      NgbModule,
+      AlertsModule.forRoot(),
       TabsModule.forRoot(),
       JwtModule.forRoot({
          config: {
@@ -57,7 +62,8 @@ export function tokenGetter() {
    ],
    providers: [
       AuthService,
-      ErrorInterceptorProvider
+      ErrorInterceptorProvider,
+      AtmFleetResolver
    ],
    bootstrap: [
       AppComponent

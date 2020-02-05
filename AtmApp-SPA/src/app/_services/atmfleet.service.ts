@@ -18,15 +18,25 @@ export class AtmfleetService {
 constructor(private http: HttpClient) { }
 
 getAtms(): Observable<AtmFleet[]> {
-  return this.http.get<AtmFleet[]>(this.baseUrl + 'atmfleet');
+  return this.http.get<AtmFleet[]>(this.baseUrl + 'atmfleet/' + 'GetAtms'  );
 }
 
 getAtm(id): Observable<AtmFleet> {
-  return this.http.get<AtmFleet>(this.baseUrl + 'atmfleet/' + id);
+  return this.http.get<AtmFleet>(this.baseUrl + 'atmfleet/' + 'GetAtm/' + id);
 }
 
-createAtm():{
-  
+createAtm(resource: AtmFleet): Observable<AtmFleet> {
+  return this.http.post<AtmFleet>(this.baseUrl + 'atmfleet/' + 'create',  resource);
+
+}
+
+updateAtm(id: number, atm: AtmFleet) {
+  return this.http.put(this.baseUrl + 'atmfleet/' + 'update/' + id, atm);
+}
+
+deleteAtm(id): Observable<AtmFleet> {
+  return this.http.delete<AtmFleet>(this.baseUrl + 'atmfleet/' + 'delete/' + id);
+
 }
 
 }

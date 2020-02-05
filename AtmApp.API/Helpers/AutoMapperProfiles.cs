@@ -9,6 +9,7 @@ namespace AtmApp.API.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<AtmFleet, AtmFleetDto>();
+            CreateMap<AtmForUpdateDto, AtmFleet>();
         }
     }
 }
