@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AtmApp.API.Data;
@@ -68,5 +69,33 @@ namespace AtmApp.API.Controllers
 
             return StatusCode(201);
         }
+
+        [HttpPut("{id}", Name = "UpdateFault")]
+        public async Task<IActionResult> Update(int id, FaultLogForUpdateDto faultLogForUpdateDto)
+        {
+            var faultLogFromRepo = await _repo.GetFaultLog(id);
+
+            _mapper.Map(faultLogForUpdateDto, faultLogFromRepo);
+
+            if(await _repo.SaveAll())
+                return NoContent();
+
+            throw new Exception($"Updating Fault Log {id} failed on save");
+        }
+
+
+        [HttpDelete("{id}", Name = "DeleteFault")]
+        public async Task<IActionResult> Delete(int id) 
+        {
+            var faultLogFromRepo = await _repo.GetFaultLog(id);
+
+            _repo.Delete(faultLogFromRepo);
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            throw new Exception("Error deleting the Fault Log");
+        }
+
     }
 }
