@@ -6,7 +6,7 @@ namespace AtmApp.API.Dtos
     public class FaultLogForListDto
     {
          public int Id { get; set; }
-        public AtmFleet AtmFleet { get; set; }
+      //  public AtmFleet AtmFleet { get; set; }
         public int AtmFleetId {get; set;}
         public string TerminalId { get; set; }
         public string TerminalName { get; set; }    

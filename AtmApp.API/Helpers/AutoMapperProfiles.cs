@@ -10,6 +10,7 @@ namespace AtmApp.API.Helpers
         {
             CreateMap<AtmFleet, AtmFleetDto>();
             CreateMap<AtmForUpdateDto, AtmFleet>();
+            CreateMap<FaultLog, FaultLogForListDto>();
         }
     }
 }
